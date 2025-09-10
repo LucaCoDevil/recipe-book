@@ -27,13 +27,14 @@ import { createRecipe } from "../js/utils.js";
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
-          <form class="row g-3" @submit.prevent="createRecipe()">
+          <form class="row g-3" @submit.prevent="createRecipe">
             <div class="col-12">
               <label for="inputName" class="form-label">Recipe Name</label>
               <input
                 type="text"
                 class="form-control"
                 id="inputName"
+                required
                 placeholder="Spaghetti Carbonara"
               />
             </div>
@@ -44,6 +45,7 @@ import { createRecipe } from "../js/utils.js";
               <input
                 type="text"
                 class="form-control"
+                required
                 id="inputDescription"
                 placeholder="A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper."
               />

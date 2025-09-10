@@ -4,23 +4,26 @@
 // Delete Item
 
 export function getRecipes() {
-    const recipes = localStorage.getItem('recipes');
-    return recipes ? JSON.parse(recipes) : [];
+  const recipes = localStorage.getItem("recipes");
+  return recipes ? JSON.parse(recipes) : [];
 }
 
-export function createRecipe(recipe) {
-    const recipes = getRecipes();
+export function createRecipe(e) {
+  const recipes = getRecipes();
+  const recipe = e.target;
 
-    if (checkRecipeExists(recipe.name)) {
-        console.error(`Recipe with name "${recipe.name}" already exists.`);
-        return;
-    }
+  console.log("recipe", recipe);
 
-    recipes.push(recipe);
-    localStorage.setItem('recipes', JSON.stringify(recipes));
+  if (checkRecipeExists(recipe.name)) {
+    console.error(`Recipe with name "${recipe.name}" already exists.`);
+    return;
+  }
+
+  recipes.push(recipe);
+  localStorage.setItem("recipes", JSON.stringify(recipes));
 }
 
 export function checkRecipeExists(name) {
-    const recipes = getRecipes();
-    return recipes.some(recipe => recipe.name === name);
+  const recipes = getRecipes();
+  return recipes.some((recipe) => recipe.name === name);
 }
